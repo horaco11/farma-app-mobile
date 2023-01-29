@@ -26,7 +26,12 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import LoginScreen from "react-native-login-screen"
+
+const Stack = createNativeStackNavigator();
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -79,16 +84,13 @@ function App(): JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Paso uno">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-            <Button
-              onPress={() => {
-                console.log('You tapped the button!');
-              }}
-              title="Press Me"
-            />
-          </Section>
+          <Button
+            onPress={() => {
+              console.log('You tapped the button!');
+            }}
+            title="Log in"
+          />
+
           <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>
@@ -98,7 +100,6 @@ function App(): JSX.Element {
           <Section title="Learn More">
             Read the docs to discover what to do next:
           </Section>
-          <LearnMoreLinks />
         </View>
       </ScrollView>
     </SafeAreaView>
