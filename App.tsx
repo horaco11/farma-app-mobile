@@ -69,6 +69,7 @@ function App(): JSX.Element {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="LogIn" component={LogIn} />
+        <Stack.Screen name="TakePic" component={TakePic} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -121,8 +122,8 @@ function LogIn() {
   return (
     <SafeAreaView style={backgroundStyle}>
       <Button
-        title="Ir a Home"
-        onPress={() => navigation.navigate('Home')}
+        title="Tomar o seleccionar una foto"
+        onPress={() => navigation.navigate('TakePic')}
       />
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
@@ -149,6 +150,21 @@ function LogIn() {
         </View>
       </ScrollView>
     </SafeAreaView>
+  );
+}
+
+function TakePic() {
+
+  const navigation = useNavigation<ProfileScreenNavigationProp>();
+
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Tomar o seleccionar una foto</Text>
+      <Button
+        title="TakePic"
+        onPress={() => navigation.navigate('LogIn')}
+      />
+    </View>
   );
 }
 
